@@ -48,4 +48,20 @@ public class IntHelpersTests
         // Assert
         Assert.Equal(expected, result);
     }
+
+    [Theory]
+    [InlineData("move 1 from 2 to 1", 1, 2, 1)]
+    [InlineData("move 3 from 1 to 3", 3, 1, 3)]
+    [InlineData("move 2 from 2 to 1", 2, 2, 1)]
+    [InlineData("move 1 from 1 to 2", 1, 1, 2)]
+    public void When_GetMoveCrateInstruction_GetCorrectResult(string input, int expectedHowManyToMove, int expectedMoveFrom, int expectedMoveTo)
+    {
+        // Act
+        var result = IntHelpers.GetMoveCrateInstruction(input);
+
+        // Assert
+        Assert.Equal(expectedHowManyToMove, result.HowManyToMove);
+        Assert.Equal(expectedMoveFrom, result.MoveFrom);
+        Assert.Equal(expectedMoveTo, result.MoveTo);
+    }
 }

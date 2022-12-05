@@ -16,3 +16,5 @@ C:\Work\adventofcode\2022\AdventOfCode\AdventOfCode\obj\Debug\net6.0\AdventOfCod
 C:\Work\adventofcode\2022\AdventOfCode\AdventOfCode\obj\Debug\net6.0\ref\AdventOfCode.dll
 C:\Work\adventofcode\2022\AdventOfCode\AdventOfCode\bin\Debug\net6.0\day2\input.txt
 C:\Work\adventofcode\2022\AdventOfCode\AdventOfCode\bin\Debug\net6.0\day3\input.txt
+C:\Work\adventofcode\2022\AdventOfCode\AdventOfCode\bin\Debug\net6.0\day4\input.txt
+C:\Work\adventofcode\2022\AdventOfCode\AdventOfCode\bin\Debug\net6.0\day5\input.txt
