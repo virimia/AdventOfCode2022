@@ -20,4 +20,17 @@ public class StringHelpersTests
         Assert.Equal(expectedFirstString, result.First());
         Assert.Equal(expectedSecondString, result.Last());
     }
+
+    [Theory]
+    [InlineData("abcd", true)]
+    [InlineData("aabc", false)]
+    [InlineData("abcdefe", false)]
+    public void When_CheckIfCharactersAreDifferent_ReturnCorrectResult(string input, bool expected)
+    {
+        // Act
+        var result = input.CheckIfCharactersAreDifferent();
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
 }
