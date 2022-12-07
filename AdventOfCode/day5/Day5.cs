@@ -169,16 +169,6 @@ public class Day5 : ISolver
         return createsConfiguration;
     }
 
-    private void MoveCrate(Dictionary<int, Stack<char>> inputCrates, MoveCrateInstruction moveCrateInstruction)
-    {
-        for (int i = 0; i < moveCrateInstruction.HowManyToMove; i++)
-        {
-            var createToMove = inputCrates[moveCrateInstruction.MoveFrom].Peek();
-            inputCrates[moveCrateInstruction.MoveTo].Push(createToMove);
-            inputCrates[moveCrateInstruction.MoveFrom].Pop();
-        }
-    }
-
     private void MoveCrateExercise2(Dictionary<int, Stack<char>> inputCrates, MoveCrateInstruction moveCrateInstruction)
     {
         var tempList = new List<char>();
