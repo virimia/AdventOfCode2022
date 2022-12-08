@@ -1,9 +1,4 @@
 ﻿using AdventOfCode.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.day7;
 
@@ -26,7 +21,7 @@ public class Day7 : ISolver
         var paths = new Stack<string>();
         var pathsAndSizes = new Dictionary<string, int>();
 
-        foreach(var line in lines)
+        foreach (var line in lines)
         {
             var splitedLine = line.Split(' ');
 
@@ -53,7 +48,7 @@ public class Day7 : ISolver
                 tempList.AddRange(paths);
                 tempList.Reverse();
 
-                for (int i=0; i< tempList.Count; i++)
+                for (int i = 0; i < tempList.Count; i++)
                 {
                     var range = tempList.GetRange(0, i + 1);
                     var currentKey = string.Join('/', range);
@@ -75,10 +70,10 @@ public class Day7 : ISolver
         var totalUsed = pathsAndSizes.First().Value; // root
         var unusedSpace = _totalDiskSpaceAvailable - totalUsed;
         var sizeRequiredToDelete = _unusedSpaceNeeded - unusedSpace;
-        
+
         foreach (var item in pathsAndSizes)
         {
-            if(item.Value <= 100000)
+            if (item.Value <= 100000)
             {
                 resultExercise1 += item.Value;
             }

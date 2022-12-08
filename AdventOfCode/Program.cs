@@ -7,6 +7,7 @@ using AdventOfCode.day4;
 using AdventOfCode.day5;
 using AdventOfCode.day6;
 using AdventOfCode.day7;
+using AdventOfCode.day8;
 
 //// day1
 //Day1 day1 = new();
@@ -32,6 +33,10 @@ using AdventOfCode.day7;
 //Day6 day6 = new();
 //day6.Solve();
 
-// day7
-Day7 day7 = new();
-day7.Solve();
+//// day7
+//Day7 day7 = new();
+//day7.Solve();
+
+// day8
+Day8 day8 = new();
+day8.Solve();
