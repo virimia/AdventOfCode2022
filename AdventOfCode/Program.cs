@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using AdventOfCode.day1;
+using AdventOfCode.day10;
 using AdventOfCode.day2;
 using AdventOfCode.day3;
 using AdventOfCode.day4;
@@ -8,6 +9,7 @@ using AdventOfCode.day5;
 using AdventOfCode.day6;
 using AdventOfCode.day7;
 using AdventOfCode.day8;
+using AdventOfCode.day9;
 
 //// day1
 //Day1 day1 = new();
@@ -37,6 +39,14 @@ using AdventOfCode.day8;
 //Day7 day7 = new();
 //day7.Solve();
 
-// day8
-Day8 day8 = new();
-day8.Solve();
+//// day8
+//Day8 day8 = new();
+//day8.Solve();
+
+//// day9
+//Day9 day9 = new();
+//day9.Solve();
+
+// day10
+Day10 day10 = new();
+day10.Solve();
