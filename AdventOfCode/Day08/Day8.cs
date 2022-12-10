@@ -1,13 +1,7 @@
-﻿using AdventOfCode.day7;
-using AdventOfCode.Helpers;
+﻿using AdventOfCode.Helpers;
 using AdventOfCode.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AdventOfCode.day8;
+namespace AdventOfCode.Day08;
 
 internal class Day8 : ISolver
 {
@@ -55,7 +49,7 @@ internal class Day8 : ISolver
                     point.SetIsTallest();
                 }
 
-                point.SetScenicScore(ComputeScenicScore(point)); 
+                point.SetScenicScore(ComputeScenicScore(point));
             }
         }
 
@@ -66,7 +60,7 @@ internal class Day8 : ISolver
         ReadWriteHelpers.WriteResult(DayName, "2", resultExercise2);
     }
 
-    private bool IsTallest(ResultMatrixPoint currentPoint) 
+    private bool IsTallest(ResultMatrixPoint currentPoint)
     {
         var topCondition = _resultMatrix.Where(p => p.X < currentPoint.X && p.Y == currentPoint.Y).All(p => p.CellValue < currentPoint.CellValue);
         var bottomCondition = _resultMatrix.Where(p => p.X > currentPoint.X && p.Y == currentPoint.Y).All(p => p.CellValue < currentPoint.CellValue);

@@ -1,12 +1,6 @@
-﻿using AdventOfCode.day2;
-using AdventOfCode.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AdventOfCode.Helpers;
 
-namespace AdventOfCode.day3;
+namespace AdventOfCode.Day03;
 
 internal class Day3 : ISolver
 {
@@ -29,7 +23,7 @@ internal class Day3 : ISolver
 
         foreach (var line in lines)
         {
-            var lineSplitInTwo = StringHelpers.SplitInChunks(line, line.Length / 2).ToList();
+            var lineSplitInTwo = line.SplitInChunks(line.Length / 2).ToList();
             var commonPart = lineSplitInTwo.First().Intersect(lineSplitInTwo.Last());
 
             var convertedChar = ConvertCharacter(commonPart.Single());

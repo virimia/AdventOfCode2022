@@ -1,7 +1,7 @@
 ﻿using AdventOfCode.Helpers;
 using AdventOfCode.Models;
 
-namespace AdventOfCode.day4;
+namespace AdventOfCode.Day04;
 
 internal class Day4 : ISolver
 {

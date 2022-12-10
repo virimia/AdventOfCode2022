@@ -3,7 +3,7 @@ using AdventOfCode.Models;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace AdventOfCode.day5;
+namespace AdventOfCode.Day05;
 
 public class Day5 : ISolver
 {
@@ -49,7 +49,7 @@ public class Day5 : ISolver
 
         var resultExercise2 = new StringBuilder();
 
-        foreach(var moveCreateInstruction in _moveCrateInstructions)
+        foreach (var moveCreateInstruction in _moveCrateInstructions)
         {
             MoveCrateExercise2(initialConfigurationExercise2, moveCreateInstruction);
         }
@@ -98,7 +98,7 @@ public class Day5 : ISolver
                 {
                     // 1..5..9..13..17..21..25..29..33..
                     // i*4+1
-                    var currentCrate = line[(i * 4) + 1];
+                    var currentCrate = line[i * 4 + 1];
 
                     if (!char.IsWhiteSpace(currentCrate))
                     {
@@ -150,7 +150,7 @@ public class Day5 : ISolver
                 {
                     // 1..5..9..13..17..21..25..29..33..
                     // i*4+1
-                    var currentCrate = line[(i * 4) + 1];
+                    var currentCrate = line[i * 4 + 1];
 
                     if (!char.IsWhiteSpace(currentCrate))
                     {

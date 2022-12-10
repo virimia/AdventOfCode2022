@@ -1,6 +1,6 @@
 ﻿using AdventOfCode.Helpers;
 
-namespace AdventOfCode.day10;
+namespace AdventOfCode.Day10;
 
 internal class Day10 : ISolver
 {
@@ -16,7 +16,25 @@ internal class Day10 : ISolver
 
     public void Solve()
     {
-        var resultExercise1 = 0;
+        ParseInput();
+
+        var resultExercise1 =
+            CalculateStrength(_cycles, 20) +
+            CalculateStrength(_cycles, 60) +
+            CalculateStrength(_cycles, 100) +
+            CalculateStrength(_cycles, 140) +
+            CalculateStrength(_cycles, 180) +
+            CalculateStrength(_cycles, 220);
+
+        ReadWriteHelpers.WriteResult(DayName, "1", resultExercise1);
+
+        Console.WriteLine();
+
+        Exercise2();
+    }
+
+    private void ParseInput()
+    {
         _cycles = new List<Cycle>();
         Cycle? prevCycle = null;
 
@@ -59,20 +77,6 @@ internal class Day10 : ISolver
 
             _cycles.Add(secondCycle);
         }
-
-        resultExercise1 =
-            CalculateStrength(_cycles, 20) +
-            CalculateStrength(_cycles, 60) +
-            CalculateStrength(_cycles, 100) +
-            CalculateStrength(_cycles, 140) +
-            CalculateStrength(_cycles, 180) +
-            CalculateStrength(_cycles, 220);
-
-        ReadWriteHelpers.WriteResult(DayName, "1", resultExercise1);
-
-        Console.WriteLine();
-
-        Exercise2();
     }
 
     private void Exercise2()
@@ -83,7 +87,7 @@ internal class Day10 : ISolver
         {
             crtIndex++;
 
-            CheckPositionAndDrawPixel(cycle, crtIndex);
+            cycle.CheckPositionAndDrawPixel(crtIndex);
 
             if (crtIndex == 39)
             {
@@ -91,25 +95,6 @@ internal class Day10 : ISolver
                 crtIndex = -1;
                 Console.WriteLine();
             }
-        }
-    }
-
-    private void CheckPositionAndDrawPixel(Cycle cycle, int position)
-    {
-        if (position == 0 || position == 1)
-        {
-            Console.Write("#");
-
-            return;
-        }
-
-        if (position == cycle.PreviousCycle?.X - 1 || position == cycle.PreviousCycle?.X || position == cycle.PreviousCycle?.X + 1)
-        {
-            Console.Write("#");
-        }
-        else
-        {
-            Console.Write(".");
         }
     }
 
@@ -124,13 +109,32 @@ internal class Day10 : ISolver
         {
             get
             {
-                return this.Index * this.X;
+                return Index * X;
             }
         }
 
         public override string ToString()
         {
             return $"Index: {Index} | X: {X} | Instruction: {Instruction} | SignalStrength: {SignalStrength}";
+        }
+
+        public void CheckPositionAndDrawPixel(int position)
+        {
+            if (position == 0 || position == 1)
+            {
+                Console.Write("#");
+
+                return;
+            }
+
+            if (position == PreviousCycle?.X - 1 || position == PreviousCycle?.X || position == PreviousCycle?.X + 1)
+            {
+                Console.Write("#");
+            }
+            else
+            {
+                Console.Write(".");
+            }
         }
     }
 }

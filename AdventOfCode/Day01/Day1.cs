@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using AdventOfCode.Helpers;
+﻿using AdventOfCode.Helpers;
 
-namespace AdventOfCode.day1;
+namespace AdventOfCode.Day01;
 
 internal class Day1 : ISolver
 {
-	private readonly string[] lines;
+    private readonly string[] lines;
     public string DayName => nameof(Day1).ToLower();
 
     public Day1()
-	{
-		lines = ReadWriteHelpers.ReadTextFile(DayName);
-	}
+    {
+        lines = ReadWriteHelpers.ReadTextFile(DayName);
+    }
 
-	public void Solve()
-	{
+    public void Solve()
+    {
         var elfs = new List<Elf>();
         var index = -1;
         var tempSum = 0;

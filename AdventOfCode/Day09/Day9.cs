@@ -1,20 +1,11 @@
 ﻿using AdventOfCode.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AdventOfCode.day9;
+namespace AdventOfCode.Day09;
 
 internal class Day9 : ISolver
 {
     public string DayName => nameof(Day9).ToLower();
     private readonly string[] _lines;
-    //private readonly List<PointInMap> _tailPoints;
-    //private readonly List<MoveInstruction> _moveInstructions;
 
     public Day9()
     {
@@ -108,32 +99,6 @@ internal class Day9 : ISolver
         ReadWriteHelpers.WriteResult(DayName, "1", resultExercise2);
     }
 
-    //private void UpdateTailPosition(PointInMap headPosition, PointInMap tailPosition, MoveInstruction moveInstruction)
-    //{
-    //    if(headPosition.Y == tailPosition.Y) // move Left of Right
-    //    {
-    //        if(headPosition.X - tailPosition.X > 2) // move right
-    //        {
-    //            for(var i = tailPosition.X; i< headPosition.X; i++)
-    //            {
-    //                if(!_tailPoints.Any(t => t.Y == headPosition.Y && t.X == i))
-    //                {
-    //                    _tailPoints.Add(new(i, headPosition.Y));
-    //                }
-    //            }
-    //        }
-
-    //        if()
-    //    }
-
-    //    if(headPosition.X== tailPosition.X) // move Up or Down
-    //    {
-
-    //    }
-
-    //    //if(headPosition.X - tailPosition.X)
-    //}
-
     private class PointInMap
     {
         public int Row { get; private set; }
@@ -152,9 +117,9 @@ internal class Day9 : ISolver
 
         public void SetPosition(int row, int col)
         {
-            this.Row = row;
-            this.Col = col;
-            this.Visited.Add((row, col));
+            Row = row;
+            Col = col;
+            Visited.Add((row, col));
         }
     }
 
@@ -164,18 +129,18 @@ internal class Day9 : ISolver
 
         public HeadPoint()
         {
-            this.Tail = new TailPoint(this);
+            Tail = new TailPoint(this);
         }
 
         public HeadPoint(int length)
         {
-            this.Tail = new TailPoint(this, length - 1);
+            Tail = new TailPoint(this, length - 1);
         }
 
         public void Move(Move move)
         {
-            this.SetPosition(this.Row + move.Row, this.Col + move.Col);
-            this.Tail.Follow();
+            SetPosition(Row + move.Row, Col + move.Col);
+            Tail.Follow();
         }
     }
 
@@ -186,14 +151,14 @@ internal class Day9 : ISolver
 
         public TailPoint(PointInMap parent)
         {
-            this.Head = parent;
+            Head = parent;
         }
 
         public TailPoint(PointInMap parent, int length) : this(parent)
         {
             if (length > 1)
             {
-                this.Tail = new TailPoint(this, length - 1);
+                Tail = new TailPoint(this, length - 1);
             }
         }
 
@@ -201,11 +166,11 @@ internal class Day9 : ISolver
         {
             if (IsAdjacent()) return;
 
-            int rowDist = Normalize(Head.Row - this.Row);
-            int colDist = Normalize(Head.Col - this.Col);
+            int rowDist = Normalize(Head.Row - Row);
+            int colDist = Normalize(Head.Col - Col);
 
-            this.SetPosition(this.Row + rowDist, this.Col + colDist);
-            this.Tail?.Follow();
+            SetPosition(Row + rowDist, Col + colDist);
+            Tail?.Follow();
         }
 
         private static int Normalize(int n)
@@ -217,11 +182,11 @@ internal class Day9 : ISolver
 
         private bool IsAdjacent()
         {
-            int rowDist = Math.Abs(Head.Row - this.Row);
-            int colDist = Math.Abs(Head.Col - this.Col);
+            int rowDist = Math.Abs(Head.Row - Row);
+            int colDist = Math.Abs(Head.Col - Col);
             int dist = rowDist + colDist;
 
-            return dist < 2 || (rowDist == 1 && colDist == 1) || (rowDist == 1 && colDist == 1);
+            return dist < 2 || rowDist == 1 && colDist == 1 || rowDist == 1 && colDist == 1;
         }
     }
 

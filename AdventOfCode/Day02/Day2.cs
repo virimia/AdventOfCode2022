@@ -1,6 +1,6 @@
 ﻿using AdventOfCode.Helpers;
 
-namespace AdventOfCode.day2;
+namespace AdventOfCode.Day02;
 
 internal class Day2 : ISolver
 {

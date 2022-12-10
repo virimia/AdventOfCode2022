@@ -1,13 +1,11 @@
 ﻿using AdventOfCode.Helpers;
 
-namespace AdventOfCode.day7;
+namespace AdventOfCode.Day07;
 
 public class Day7 : ISolver
 {
     private readonly string[] lines;
     public string DayName => nameof(Day7).ToLower();
-    private const string _dirCommand = "dir ";
-    private const string _cdCommand = "cd ";
     private const int _totalDiskSpaceAvailable = 70000000;
     private const int _unusedSpaceNeeded = 30000000;
 
